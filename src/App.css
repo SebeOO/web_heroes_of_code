@@ -1,113 +1,411 @@
-/* Główne style strony */
+/* Ogólne */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Główne ustawienia strony */
 .Fullpage {
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: #f5f5f5;
+  font-family: Arial, sans-serif; /* Czcionka strony */
+  height: 100vh; /* Wysokość na pełny widok */
+  display: flex; /* Model Flexbox */
+  flex-direction: column; /* Układ w kolumnach */
+  justify-content: flex-start; /* Elementy na górze strony */
+  background-color: #f5f5f5; /* Kolor tła */
 }
-
+/* TOP */
+/* Główna sekcja nagłówka */
 #TOP {
-  width: 100%;
-  background-color: #282c34;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%; /* Nagłówek na pełną szerokość */
+  background-color: #282c34; /* Ciemny kolor tła */
+  padding: 20px 0; /* Odstępy wewnętrzne */
+  display: flex; /* Flexbox */
+  justify-content: space-between; /* Elementy rozmieszczone na boki */
+  align-items: center; /* Wyrównanie w pionie */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtelny cień */
 }
 
+/* Sekcja menu w nagłówku */
 #Menu {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
+  display: flex; /* Elementy w jednym wierszu */
+  justify-content: space-between; /* Równomierne rozmieszczenie */
+  width: 100%; /* Szerokość menu */
+  align-items: center; /* Wyrównanie w pionie */
+  padding: 0 20px; /* Odstępy po bokach */
 }
 
-/* Logo */
+/* Stylizacja logo */
 .logo img {
-  width: 80px;  /* Dostosowanie szerokości logo */
-  height: auto;
-  margin-left: 20px;
-  cursor: pointer; /* Zmiana kursora na rękę po najechaniu na logo */
+  width: 80px; /* Szerokość logo */
+  height: auto; /* Automatyczne skalowanie */
+  margin-left: 20px; /* Odstęp od lewej */
+  cursor: pointer; /* Kursor ręki */
 }
-
-/* Menu przyciski */
+/*IN TOP*/
+/* Kontener przycisków */
 .buttons-menu {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Układ w jednym wierszu */
+  gap: 15px; /* Odstępy między przyciskami */
+  justify-content: center; /* Wyśrodkowanie */
+  align-items: center; /* Wyrównanie w pionie */
 }
 
+/* Stylizacja przycisków */
 .buttons-menu .buttons {
-  padding: 10px 20px;  /* Ustawienie stałych rozmiarów przycisków */
-  background-color: #61dafb;
-  color: #000;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-
-  /* Stała szerokość i wysokość przycisków */
-  width: 200px;  /* Stała szerokość przycisków */
-  height: 50px;  /* Stała wysokość przycisków */
-  min-width: 150px; /* Zapewnienie minimalnej szerokości */
-
-  /* Wyśrodkowanie tekstu */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  padding: 10px 20px; /* Wewnętrzne odstępy */
+  background-color: #61dafb; /* Kolor tła */
+  color: #000; /* Kolor tekstu */
+  text-transform: uppercase; /* Wielkie litery */
+  font-weight: bold; /* Pogrubiony tekst */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  cursor: pointer; /* Kursor ręki */
+  transition: background-color 0.3s ease; /* Płynne przejście koloru */
+  text-decoration: none; /* Brak podkreślenia */
+  width: 150px; /* Szerokość przycisku */
+  height: 50px; /* Wysokość przycisku */
+  display: flex; /* Wyśrodkowanie zawartości */
+  justify-content: center; /* Wyśrodkowanie poziome */
+  align-items: center; /* Wyśrodkowanie pionowe */
 }
 
+/* Efekt najechania */
 .buttons-menu .buttons:hover {
-  background-color: #21a1f1;
+  background-color: #21a1f1; /* Ciemniejszy kolor tła */
+}
+/*Logowanie*/
+/* Kontener logowania */
+.login {
+  margin-right: 20px; /* Odstęp od prawej */
 }
 
 /* Przycisk logowania */
-.login {
-  margin-right: 20px;
-}
-
 .login-button {
-  padding: 10px 20px;
-  background-color: #61dafb;
-  color: #000;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: none;
+  padding: 10px 20px; /* Wewnętrzne odstępy */
+  background-color: #61dafb; /* Kolor tła */
+  color: #000; /* Kolor tekstu */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  font-weight: bold; /* Pogrubiony tekst */
+  cursor: pointer; /* Kursor ręki */
+  transition: background-color 0.3s ease; /* Płynne przejście koloru */
+  border: none; /* Brak obramowania */
 }
 
+/* Efekt najechania */
 .login-button:hover {
-  background-color: #21a1f1;
+  background-color: #21a1f1; /* Ciemniejszy kolor tła */
+}
+/*Karuzela i kafelki*/
+/* Główna sekcja MID */
+.MID {
+  background-color: #f0f0f0; /* Jasnoszare tło */
+  overflow: hidden; /* Ukrycie wychodzących elementów */
+  display: flex; /* Model Flexbox */
+  justify-content: center; /* Wyśrodkowanie elementów */
+  align-items: center; /* Wyśrodkowanie pionowe */
+  padding: 20px; /* Odstępy wewnętrzne */
 }
 
-/* Responsywność */
-@media (max-width: 768px) {
-  #Menu {
-    flex-direction: column;  /* Ustawienie menu w kolumnie na mniejszych ekranach */
-  }
-
-  .buttons-menu {
-    flex-direction: column;  /* Ustawienie przycisków w kolumnie na mniejszych ekranach */
-    gap: 10px;
-  }
-
-  .logo img {
-    width: 60px;  /* Zmniejszenie logo na mniejszych ekranach */
-  }
-
-  .login {
-    margin-right: 0;  /* Usunięcie marginesu z prawej strony na mniejszych ekranach */
-  }
-
-  #TOP {
-    justify-content: space-between;  /* Ustawić logo i przyciski w poziomie */
-    padding: 10px 0;
-  }
+/* Stylizacja karuzeli */
+.carousel {
+  display: flex; /* Kafle w jednym wierszu */
+  gap: 20px; /* Odstęp między kaflami */
+  overflow-x: auto; /* Poziome przewijanie */
+  padding: 10px; /* Odstępy wewnętrzne */
+  scroll-snap-type: x mandatory; /* Automatyczne zatrzymanie na kafelkach */
 }
+
+/* Ukrycie paska przewijania */
+.carousel::-webkit-scrollbar {
+  display: none; /* Brak paska przewijania */
+}
+
+/* Pojedynczy kafelek */
+.tile {
+  min-width: 200px; /* Minimalna szerokość */
+  height: 150px; /* Wysokość kafelka */
+  background-color: #61dafb; /* Tło kafelka */
+  display: flex; /* Układ Flexbox */
+  justify-content: center; /* Wyśrodkowanie poziome */
+  align-items: center; /* Wyśrodkowanie pionowe */
+  border-radius: 10px; /* Zaokrąglone rogi */
+  flex-shrink: 0; /* Brak skalowania */
+  scroll-snap-align: start; /* Snapowanie do krawędzi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+}
+
+/* Efekt najechania */
+.tile:hover {
+  background-color: #21a1f1; /* Ciemniejszy kolor */
+  transform: scale(1.05); /* Powiększenie kafelka */
+  transition: transform 0.3s ease; /* Płynne przejście */
+}
+
+/* Sekcja MID-2: Dodatkowa treść */
+#MID-2 {
+  background-color: #fff; /* Białe tło */
+  color: #333; /* Ciemnoszary tekst */
+  padding: 20px; /* Odstępy wewnętrzne */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  border-top: 1px solid #ddd; /* Linia na górze sekcji */
+}
+
+/* Stopka */
+#BOTTOM {
+  background-color: #282c34; /* Ciemne tło */
+  color: white; /* Biały tekst */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  padding: 20px; /* Odstępy wewnętrzne */
+  margin-top: auto; /* Wypychanie na dół strony */
+}
+
+/*Responsywność*/
+  /* Mobilne urządzenia (telefony Android, iPhone) */
+  @media (max-width: 480px) {
+    /* Nagłówek */
+    #TOP {
+      padding: 10px 0; /* Mniejsze odstępy */
+    }
+
+    #Menu {
+      flex-direction: column; /* Menu w kolumnie */
+      align-items: center; /* Wyśrodkowanie elementów */
+      gap: 10px; /* Odstępy między elementami */
+    }
+
+    .logo img {
+      width: 60px; /* Mniejsze logo */
+      margin-left: 0; /* Usunięcie marginesu */
+    }
+
+    .buttons-menu {
+      flex-direction: column; /* Przycisk w kolumnie */
+      gap: 10px; /* Odstępy między przyciskami */
+    }
+
+    .buttons-menu .buttons {
+      width: 120px; /* Mniejsza szerokość przycisków */
+      height: 40px; /* Mniejsza wysokość przycisków */
+    }
+
+    .login {
+      margin-right: 0; /* Brak marginesu z prawej */
+    }
+
+    /* Kafelki */
+    .carousel {
+      padding: 5px; /* Mniejsze odstępy */
+    }
+
+    .tile {
+      min-width: 150px; /* Mniejsza szerokość kafelków */
+      height: 120px; /* Mniejsza wysokość kafelków */
+    }
+  }
+
+  /* Urządzenia o szerokości ekranów 480px - 768px (tablety, starsze telefony) */
+  @media (max-width: 768px) {
+    #TOP {
+      padding: 10px 0; /* Mniejsze odstępy */
+    }
+
+    #Menu {
+      flex-direction: column; /* Menu w kolumnie */
+      align-items: center; /* Wyśrodkowanie elementów */
+      gap: 15px; /* Większe odstępy */
+    }
+
+    .logo img {
+      width: 70px; /* Zmniejszenie logo */
+    }
+
+    .buttons-menu {
+      flex-direction: column; /* Przyciski w kolumnie */
+      gap: 15px; /* Większe odstępy między przyciskami */
+    }
+
+    .buttons-menu .buttons {
+      width: 140px; /* Szerokość przycisków */
+      height: 45px; /* Wysokość przycisków */
+    }
+
+    .login {
+      margin-right: 0; /* Usunięcie marginesu */
+    }
+
+    .carousel {
+      padding: 10px; /* Większe odstępy */
+    }
+
+    .tile {
+      min-width: 180px; /* Szerokość kafelków */
+      height: 130px; /* Wysokość kafelków */
+    }
+  }
+
+  /* Laptopy, małe komputery, MacBook */
+  @media (max-width: 1024px) {
+    #TOP {
+      padding: 15px 0; /* Większe odstępy */
+    }
+
+    #Menu {
+      flex-direction: row; /* Menu w rzędzie */
+      justify-content: space-between; /* Przyciski rozdzielone */
+    }
+
+    .logo img {
+      width: 80px; /* Standardowe logo */
+    }
+
+    .buttons-menu {
+      flex-direction: row; /* Przyciski w rzędzie */
+      gap: 20px; /* Odstępy między przyciskami */
+    }
+
+    .buttons-menu .buttons {
+      width: 150px; /* Szerokość przycisków */
+      height: 50px; /* Wysokość przycisków */
+    }
+
+    .carousel {
+      padding: 15px; /* Większe odstępy */
+    }
+
+    .tile {
+      min-width: 200px; /* Szerokość kafelków */
+      height: 150px; /* Wysokość kafelków */
+    }
+  }
+
+  /* Komputery stacjonarne i większe ekrany (np. MacBook Pro, Windows PC) */
+  @media (min-width: 1025px) {
+    #TOP {
+      padding: 20px 0; /* Duże odstępy */
+    }
+
+    #Menu {
+      flex-direction: row; /* Menu w rzędzie */
+      justify-content: space-between; /* Rozdzielenie przycisków */
+      gap: 30px; /* Większe odstępy */
+    }
+
+    .logo img {
+      width: 100px; /* Większe logo */
+    }
+
+    .buttons-menu {
+      flex-direction: row; /* Przyciski w rzędzie */
+      gap: 25px; /* Większe odstępy */
+    }
+
+    .buttons-menu .buttons {
+      width: 180px; /* Większa szerokość przycisków */
+      height: 60px; /* Większa wysokość przycisków */
+    }
+
+    .carousel {
+      padding: 20px; /* Większe odstępy */
+    }
+
+    .tile {
+      min-width: 220px; /* Szerokość kafelków */
+      height: 160px; /* Wysokość kafelków */
+    }
+  }
+
+  /* iPad (tablety z systemem iOS) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    #TOP {
+      padding: 15px 0;
+    }
+
+    #Menu {
+      flex-direction: column; /* Menu w kolumnie */
+      align-items: center; /* Wyśrodkowanie */
+      gap: 15px; /* Większe odstępy */
+    }
+
+    .logo img {
+      width: 80px; /* Logo tabletowe */
+    }
+
+    .buttons-menu {
+      flex-direction: column; /* Przycisk w kolumnie */
+      gap: 15px; /* Odstępy */
+    }
+
+    .buttons-menu .buttons {
+      width: 160px; /* Szerokość przycisków */
+      height: 50px; /* Wysokość przycisków */
+    }
+
+    .carousel {
+      padding: 15px; /* Odstępy */
+    }
+
+    .tile {
+      min-width: 200px; /* Szerokość kafelków */
+      height: 140px; /* Wysokość kafelków */
+    }
+  }
+
+  /* Tablety z systemem Android */
+  @media (min-width: 600px) and (max-width: 768px) {
+    #TOP {
+      padding: 12px 0;
+    }
+
+    #Menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 70px;
+    }
+
+    .buttons-menu {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .buttons-menu .buttons {
+      width: 150px;
+      height: 50px;
+    }
+
+    .carousel {
+      padding: 10px;
+    }
+
+    .tile {
+      min-width: 180px;
+      height: 130px;
+    }
+  }
+
+  /* Powyżej 1400px dla bardzo dużych ekranów (np. większe monitory, TV) */
+  @media (min-width: 1400px) {
+    #TOP {
+      padding: 25px 0; /* Duże odstępy */
+    }
+
+    #Menu {
+      gap: 40px; /* Bardzo duże odstępy */
+    }
+
+    .logo img {
+      width: 120px; /* Większe logo */
+    }
+
+    .buttons-menu .buttons {
+      width: 200px; /* Większa szerokość przycisków */
+      height: 70px; /* Większa wysokość przycisków */
+    }
+
+    .tile {
+      min-width: 250px; /* Większe kafelki */
+      height: 180px; /* Większe kafelki */
+    }
+  }
