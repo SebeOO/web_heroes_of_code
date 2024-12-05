@@ -3,53 +3,66 @@ import './App.css';
 function App() {
     return (
         <div className="Fullpage">
-            {/* Sekcja TOP */}
-            <div id="TOP">
-                <div id="Menu">
-                    {/* Miejsce na logo po lewej stronie */}
-                    <div className="logo">
-                        <a href="index.html">
-                            <img src="/logo.png" alt="Logo" />
-                        </a>
+            <div className="Header">
+                <div className="Login-button">
+                    Zaloguj
+                </div>
+            </div>
+            <div className="Menu">
+                <div className="Logo">
+                    tu wpierdolic logo
+                </div>
+                <div className="Menu-buttons">
+                    <div className="Buttons">
+                        Kursy i Cenniki
+                    </div>
+                    <div className="Buttons">
+                        <button className="Dropdown-btn">O Nas</button>
+                        <div className="Dropdown-content">
+                            <a href="#">Podpunkt 1</a>
+                            <a href="#">Podpunkt 2</a>
+                            <a href="#">Podpunkt 3</a>
+                            <a href="#">Podpunkt 4</a>
+                            <a href="#">Podpunkt 5</a>
+                        </div>
                     </div>
 
-                    {/* Menu po lewej stronie */}
-                    <div className="buttons-menu">
-                        <div className="buttons menu">Heroes Of Code</div>
-                        <div className="buttons menu">Cennik</div>
-                        <div className="buttons menu">Jak nauczamy</div>
-                        <div className="buttons menu">Program nauczania</div>
-                        <div className="buttons menu">O nas</div>
-                        <div className="buttons menu">Kontakt</div>
+                    <div className="Buttons">
+                        Nie wiem
                     </div>
-
-                    {/* Miejsce na logowanie po prawej stronie */}
-                    <div className="login">
-                        <button className="login-button">Zaloguj się</button>
+                    <div className="Buttons">
+                        Więcej
                     </div>
                 </div>
             </div>
-
-            {/* Sekcja MID */}
-            <div className="MID">
-                <div className="carousel">
-                    <div className="tile">Kafelek 1</div>
-                    <div className="tile">Kafelek 2</div>
-                    <div className="tile">Kafelek 3</div>
-                </div>
+            <div className="Information-Box">
+                Napis czym sie zajmujemy w skrocie
+                Profesjonalna nauka dzieci oraz młodzierzy w
+                programowaniu Język wybierasz tylko ty reszty uczymy my
             </div>
-
-            {/* Sekcja MID-2 */}
-            <div id="MID-2">
-                <p>Miejsce na dodatkową treść</p>
+            <div className="Information-Box-2">
+                chcesz zeyb twoj syn lub cUrka od najmlodszych lat uczyli sie programowani zapisz ich do nas
+                nauczymy twoje dzcieko wszystkiego od podstaw
+                Od aplikacji do pracy po najmniejsze szczegoly
             </div>
-
-            {/* Sekcja BOTTOM */}
-            <div id="BOTTOM">
-                <h2>STOPKA</h2>
+            <div className="Photos">
+                6 zdjec pokazujace Najlepsze z naszych kursów
+            </div>
+            <div className="Opinion-set">
+                meiijsce na opinie
+            </div>
+            <div className="gwaration-box">
+                pierdolenie ze mamy gwarnacje na nasze uslugi
+            </div>
+            <div className="Footer">
+                Stopka z dużą iloscia pierdolenia ikontkami do socijali itp
+            </div>
+            <div className="underfooter">
+                podstopka z copyrightami
             </div>
         </div>
     );
 }
+
 
 export default App;
