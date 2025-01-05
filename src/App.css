@@ -1,5 +1,6 @@
 /* App.css */
 
+/* Fullpage layout */
 .Fullpage {
     display: flex;
     flex-direction: column;
@@ -44,56 +45,54 @@
     padding: 10px 15px;
     background-color: #f4b400;
     border-radius: 5px;
-}
-.Buttons {
     position: relative;
-    display: inline-block;
+    display: flex;          /* Enable flexbox */
+    align-items: center;    /* Vertically center the text */
+    justify-content: center;/* Horizontally center the text */
 }
 
 .Dropdown-btn {
-    background-color: #4CAF50; /* Kolor tła przycisku */
-    color: white; /* Kolor tekstu */
-    padding: 10px 20px; /* Padding wewnętrzny */
-    font-size: 16px; /* Rozmiar czcionki */
-    border: none; /* Usuwamy obramowanie */
-    border-radius: 5px; /* Zaokrąglone rogi */
-    cursor: pointer; /* Kursor zmienia się na wskaźnik */
+    background-color: #f4b400;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .Dropdown-btn:hover {
-    background-color: #45a049; /* Kolor tła przycisku po najechaniu */
+    background-color: #45a049;
 }
 
 .Dropdown-content {
-    display: none; /* Ukryj listę domyślnie */
+    display: none;
     position: absolute;
-    background-color: #f9f9f9; /* Kolor tła listy */
-    min-width: 160px; /* Minimalna szerokość listy */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Cień pod listą */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 5px; /* Zaokrąglone rogi listy */
+    border-radius: 5px;
 }
 
 .Dropdown-content a {
-    color: black; /* Kolor tekstu w linkach */
-    padding: 12px 16px; /* Padding dla każdego linku */
-    text-decoration: none; /* Usuwamy podkreślenie */
-    display: block; /* Linki zajmują całą szerokość */
-}
-
-.Dropdown-content a:hover {
-    background-color: #ddd; /* Kolor tła linków po najechaniu */
-}
-
-.Buttons:hover .Dropdown-content {
-    display: block; /* Pokazuje listę po najechaniu na przycisk */
-}
-
-/* Jeśli chcesz, aby lista była widoczna po kliknięciu */
-.Buttons.active .Dropdown-content {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
 }
 
+.Dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.Buttons:hover .Dropdown-content {
+    display: block;
+}
+
+.Buttons.active .Dropdown-content {
+    display: block;
+}
 
 .Buttons:hover {
     background-color: #e68900;
@@ -127,22 +126,32 @@
     font-weight: bold;
 }
 
+/* Wrapper will push the footer upwards */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* This will allow the wrapper to grow */
+    justify-content: flex-end; /* Ensures footer stays at the bottom, just above the underfooter */
+}
+
+/* Footer styling */
 .Footer {
     background-color: #333;
     color: white;
     padding: 20px;
     text-align: center;
+    margin-bottom: 30px; /* Add space to separate from underfooter */
 }
 
+/* Underfooter styling */
 .underfooter {
     background-color: #222;
     color: white;
     padding: 10px;
     text-align: center;
     font-size: 12px;
-}
-
-.Footer,
-.underfooter {
-    margin-top: auto;
+    position: fixed; /* Stays at the very bottom of the page */
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
