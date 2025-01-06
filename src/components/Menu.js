@@ -11,12 +11,16 @@ function Menu() {
 
     return (
         <div className="Menu">
-                <div className="Logo"><img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/></div>
-                <div className="Menu-buttons">
+                <div className="Logo">
+                    <a href="/index.html">
+                        <img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/>
+                    </a>
+                </div>
+            <div className="Menu-buttons">
                     <div className="Buttons">Kursy</div>
                     <div className="Buttons">Kontakt</div>
-                    <div className="Buttons">Forum</div>
-                    <div className="Buttons">Pomoc</div>
+                    <div className="Buttons inactive">Forum</div>
+                    <div className="Buttons inactive">Pomoc</div>
                 </div>
 
                 <div className="Buttons special" onClick={handlePopupToggle}>

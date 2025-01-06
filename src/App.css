@@ -1,22 +1,19 @@
 /* App.css */
+::selection {
+    color: #222;
+    background: #f4b400;
+}
+
 ul,
 ol{
     list-style: none;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    max-width: 1600px;
-}
-
 /* Fullpage layout */
 .Fullpage {
+    color: #222;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     font-family: Poppins, sans-serif;
 }
 
@@ -31,7 +28,7 @@ ol{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #2e3b4e;
+    background-color: #222;
     padding: 1em;
     color: white;
 }
@@ -44,7 +41,7 @@ ol{
 
 .Menu-buttons {
     display: flex;
-    gap: 15px;
+
 }
 
 .Buttons {
@@ -58,16 +55,6 @@ ol{
     border: none;
     text-align: center;
     width: auto;
-}
-
-.special{
-    background-color: #f4b400;
-    color: #2e3b4e;
-}
-
-.special:hover{
-    color: #2e3b4e;
-    background-color: #e68900;
 }
 
 .Dropdown-btn {
@@ -118,17 +105,53 @@ ol{
     color: white;
 }
 
-.Information-Box{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1em;
-    /*background-color: #f4f4f4;*/
-    border-radius: 8px;
+.special{
+    background-color: #f4b400;
+    color: #222;
 }
 
-.hero-img>img{
-    width: 800px;
+.special:hover{
+    color: #222;
+    background-color: #e68900;
+}
+
+.inactive{
+    cursor: default;
+    color: #515151;
+}
+
+.inactive:hover{
+    cursor: default;
+    color: #515151;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+    margin: auto;
+    padding: 3em 0;
+
+    --max-width: 100vw - 30%;
+    --padding: 1rem;
+
+    width: min(var(--max-width), 100% - var(--padding) * 2);
+    margin-inline: auto;
+}
+
+.container-img img{
+    width: 600px;
+}
+
+.banner{
+    background-color: #222222;
+    color: white;
+    text-align: center;
+}
+
+.banner .container div img{
+    width: 12em;
 }
 
 .Photos {
@@ -151,15 +174,6 @@ ol{
     font-weight: bold;
 }
 
-/* Wrapper will push the footer upwards */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* This will allow the wrapper to grow */
-    justify-content: flex-end; /* Ensures footer stays at the bottom, just above the underfooter */
-}
-
-/* Footer styling */
 .Footer {
     display: flex;
     justify-content: space-around;
@@ -167,13 +181,13 @@ ol{
     color: white;
     padding: 20px;
     text-align: center;
+    border-bottom: .1em solid #515151;
 }
 
 .footer-widget{
     text-align: left;
 }
 
-/* Underfooter styling */
 .underfooter {
     background-color: #222;
     color: white;
@@ -182,6 +196,34 @@ ol{
     font-size: 12px;
 }
 
+.newsletter-input-field{
+    padding: 1.3em;
+    border-radius: .5em;
+    border: none;
+    margin-right: 1em;
+}
+
+/* ---------------- */
 .flow > * + *{
     margin-top: .8em;
+}
+
+.two-text-columns{
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    gap: 5em;
+}
+
+.two-text-columns div{
+    width: 50%;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.bold{
+    font-weight: bold;
 }
