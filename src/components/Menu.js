@@ -14,18 +14,17 @@ function Menu() {
         try {
             const response = await axios.get('http://localhost:8080/test', {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('authToken')}` // Include token
+                    Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
             });
-            console.log(response.data);
         } catch (error) {
             console.error('Error:', error);
         }
     };
 
     const handleLogout = () => {
-        logout(); // Call the logout function from AuthContext
-        setShowDropdown(false); // Close dropdown when logging out
+        logout();
+        setShowDropdown(false);
     };
 
     return (
@@ -41,11 +40,11 @@ function Menu() {
 
             {/* User Section or Login Button */}
             {user ? (
-                // When the user is logged in, show their username and a dropdown
+
                 <div
                     className="user-section"
-                    onMouseEnter={() => setShowDropdown(true)} // Show dropdown on hover
-                    onMouseLeave={() => setShowDropdown(false)} // Hide dropdown when mouse leaves
+                    onMouseEnter={() => setShowDropdown(true)}
+                    onMouseLeave={() => setShowDropdown(false)}
                 >
                     <button className="account-button">
                         {user.username} ▼

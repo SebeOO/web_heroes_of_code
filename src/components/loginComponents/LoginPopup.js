@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useAuth } from '../../context/AuthContext'; // Access global auth state
+import { useAuth } from '../../context/AuthContext';
 
 
 function LoginPopup({ setIsPopupVisible }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [isRegistering, setIsRegistering] = useState(false); // Default to login mode
-    const [showDropdown, setShowDropdown] = useState(false); // Dropdown visibility
-    const { user, setUser, logout } = useAuth(); // Accessing user state and functions
+    const [isRegistering, setIsRegistering] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const { user, setUser, logout } = useAuth();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Validate password match during registration (only if registering)
+
         if (isRegistering && password !== confirmPassword) {
             alert('Passwords must match!');
             return;
@@ -24,7 +24,7 @@ function LoginPopup({ setIsPopupVisible }) {
             ? 'http://localhost:8080/api/auth/register'
             : 'http://localhost:8080/api/auth/login';
 
-        const data = { username, password }; // This is the data sent to the backend
+        const data = { username, password };
 
         try {
             const response = await axios.post(url, data);
@@ -34,22 +34,16 @@ function LoginPopup({ setIsPopupVisible }) {
 
                 if (!isRegistering) {
 
-                    // After successful login, the backend will return the token and username (or email)
                     const  token = response.data;
                     const  username = data.username;
 
-                    // Ensure response has token and username before storing them
                     if (token && username) {
-                        // Store token and username in localStorage
-                        console.log(data)
-                        console.log(response)
-                        localStorage.setItem('authToken', token); // Save token for future requests
-                        localStorage.setItem('username', username); // Save username (email) for UI updates
 
-                        // Store user information in global state for UI updates
+                        localStorage.setItem('authToken', token);
+                        localStorage.setItem('username', username);
+
                         setUser({ username, token });
 
-                        // Close the login popup
                         setIsPopupVisible(false);
                     } else {
                         alert('Login failed. Please try again.');
@@ -75,8 +69,8 @@ function LoginPopup({ setIsPopupVisible }) {
 
     const handleLogout = () => {
         logout();
-        localStorage.removeItem('authToken'); // Clear token from localStorage
-        setShowDropdown(false); // Hide dropdown on logout
+        localStorage.removeItem('authToken');
+        setShowDropdown(false);
     };
 
     // Render login/register form if not logged in

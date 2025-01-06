@@ -8,19 +8,18 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        // On initial load, check if there's a token in localStorage
+
         const token = localStorage.getItem('authToken');
         const username = localStorage.getItem('username');
 
         if (token && username) {
-            // If there's a token and username, we assume the user is logged in.
             setUser({ token, username });
         }
     }, []);
 
     const logout = () => {
-        localStorage.removeItem('authToken'); // Remove token from localStorage
-        localStorage.removeItem('username'); // Remove username from localStorage
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('username');
         setUser(null); // Clear user state
     };
 

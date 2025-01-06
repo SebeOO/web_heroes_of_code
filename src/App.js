@@ -5,7 +5,7 @@ import Menu from './components/Menu';
 import InformationBox from './components/InformationBox';
 import Footer from './components/Footer';
 import Underfooter from './components/Underfooter';
-import { AuthProvider } from './context/AuthContext'; // Import AuthProvider
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
     return (
