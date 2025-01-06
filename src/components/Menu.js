@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext'; // Access global auth state
 import LoginPopup from './loginComponents/LoginPopup'; // Import LoginPopup
-import Dropdown from './Dropdown'; // Import your Dropdown component
+import axios from 'axios';
 
 function Menu() {
     const { user, setUser, logout } = useAuth(); // Access auth state and functions from AuthContext
@@ -10,6 +10,18 @@ function Menu() {
 
     const showPopup = () => setIsPopupVisible(true);
     const hidePopup = () => setIsPopupVisible(false);
+    const testApi = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/test', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('authToken')}` // Include token
+                }
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
     const handleLogout = () => {
         logout(); // Call the logout function from AuthContext
@@ -22,7 +34,6 @@ function Menu() {
 
             {/* Main Menu */}
             <div className="Menu-buttons">
-                <Dropdown />
                 <div className="Buttons">Kursy i Cenniki</div>
                 <div className="Buttons">Nie wiem</div>
                 <div className="Buttons">Więcej</div>
@@ -31,18 +42,19 @@ function Menu() {
             {/* User Section or Login Button */}
             {user ? (
                 // When the user is logged in, show their username and a dropdown
-                <div className="user-section">
-                    <button
-                        className="account-button"
-                        onClick={() => setShowDropdown(!showDropdown)} // Toggle dropdown visibility
-                    >
+                <div
+                    className="user-section"
+                    onMouseEnter={() => setShowDropdown(true)} // Show dropdown on hover
+                    onMouseLeave={() => setShowDropdown(false)} // Hide dropdown when mouse leaves
+                >
+                    <button className="account-button">
                         {user.username} ▼
                     </button>
                     {showDropdown && (
                         <div className="dropdown-menu">
                             <ul>
                                 <li onClick={() => alert('Profile option clicked')}>Profile</li>
-                                <li onClick={() => alert('Settings option clicked')}>Settings</li>
+                                <li onClick={() => testApi()}>Settings</li>
                                 <li onClick={handleLogout}>Logout</li>
                             </ul>
                         </div>

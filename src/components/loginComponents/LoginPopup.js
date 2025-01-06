@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useAuth } from '../../context/AuthContext'; // Access global auth state
-import Popup from './Popup'; // Popup container for modal
-import axios from 'axios'; // Import axios
-import LoginForm from './LoginForm'; // Form for login and registration
-import DropdownMenu from './DropdownMenu'; // Dropdown menu for logged-in users
-import ActionButtons from './ActionButtons'; // Action buttons for toggling modes
+
 
 function LoginPopup({ setIsPopupVisible }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false); // Default to login mode
-    const { user, setUser, logout } = useAuth(); // Access user state and functions
+    const [showDropdown, setShowDropdown] = useState(false); // Dropdown visibility
+    const { user, setUser, logout } = useAuth(); // Accessing user state and functions
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Validate password match during registration (only if registering)
         if (isRegistering && password !== confirmPassword) {
             alert('Passwords must match!');
             return;
@@ -25,23 +24,32 @@ function LoginPopup({ setIsPopupVisible }) {
             ? 'http://localhost:8080/api/auth/register'
             : 'http://localhost:8080/api/auth/login';
 
-        const data = { username, password };
+        const data = { username, password }; // This is the data sent to the backend
 
         try {
             const response = await axios.post(url, data);
 
             if (response.status === 200) {
-                alert(isRegistering ? 'Registration successful!' : 'Login successful!');
+
 
                 if (!isRegistering) {
-                    const { token } = response.data;
-                    const username = data.username;
 
+                    // After successful login, the backend will return the token and username (or email)
+                    const  token = response.data;
+                    const  username = data.username;
+
+                    // Ensure response has token and username before storing them
                     if (token && username) {
-                        localStorage.setItem('authToken', token);
-                        localStorage.setItem('username', username);
+                        // Store token and username in localStorage
+                        console.log(data)
+                        console.log(response)
+                        localStorage.setItem('authToken', token); // Save token for future requests
+                        localStorage.setItem('username', username); // Save username (email) for UI updates
 
+                        // Store user information in global state for UI updates
                         setUser({ username, token });
+
+                        // Close the login popup
                         setIsPopupVisible(false);
                     } else {
                         alert('Login failed. Please try again.');
@@ -56,11 +64,29 @@ function LoginPopup({ setIsPopupVisible }) {
         }
     };
 
+
+
+
+    const resetForm = () => {
+        setUsername('');
+        setPassword('');
+        setConfirmPassword('');
+    };
+
+    const handleLogout = () => {
+        logout();
+        localStorage.removeItem('authToken'); // Clear token from localStorage
+        setShowDropdown(false); // Hide dropdown on logout
+    };
+
+    // Render login/register form if not logged in
     return (
-        <div>
-            {user ? (
-                <DropdownMenu user={user} handleLogout={logout} />
-            ) : (
+        <div className="popup show">
+            <div className="popup-content">
+                <button className="close-btn" onClick={() => setIsPopupVisible(false)}>
+                    ×
+                </button>
+                <h2>{isRegistering ? 'Register' : 'Login'}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <input
@@ -100,9 +126,7 @@ function LoginPopup({ setIsPopupVisible }) {
                             type="button"
                             onClick={() => {
                                 setIsRegistering(!isRegistering);
-                                setUsername('');
-                                setPassword('');
-                                setConfirmPassword('');
+                                resetForm();
                             }}
                         >
                             {isRegistering
@@ -111,7 +135,7 @@ function LoginPopup({ setIsPopupVisible }) {
                         </button>
                     </div>
                 </form>
-            )}
+            </div>
         </div>
     );
 }
