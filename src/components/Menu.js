@@ -11,19 +11,20 @@ function Menu() {
 
     return (
         <div className="Menu">
-            <div className="Logo">tu wpierdolic logo</div>
-            <div className="Menu-buttons">
-                <Dropdown />
-                <div className="Buttons">Kursy i Cenniki</div>
-                <div className="Buttons">Nie wiem</div>
-                <div className="Buttons">Więcej</div>
-            </div>
-            <div className="Buttons" onClick={handlePopupToggle}>
-                Zaloguj
-            </div>
+                <div className="Logo"><img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/></div>
+                <div className="Menu-buttons">
+                    <div className="Buttons">Kursy</div>
+                    <div className="Buttons">Kontakt</div>
+                    <div className="Buttons">Forum</div>
+                    <div className="Buttons">Pomoc</div>
+                </div>
+
+                <div className="Buttons special" onClick={handlePopupToggle}>
+                    Wypróbuj za darmo!
+                </div>
 
             {/* Renderujemy LoginPopup tylko wtedy, gdy jest widoczny */}
-            {isPopupVisible && <LoginPopup setIsPopupVisible={setIsPopupVisible} />}
+            {isPopupVisible && <LoginPopup setIsPopupVisible={setIsPopupVisible}/>}
         </div>
     );
 }

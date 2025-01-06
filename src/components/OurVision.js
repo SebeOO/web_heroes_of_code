@@ -1,8 +1,11 @@
 import React from 'react';
 
-function InformationBox() {
+function OurVision() {
     return (
         <div className="Information-Box container">
+            <div className="hero-img">
+                <img src="/img/hero_2.png" alt="Code Heroes Logo" width="300px"/>
+            </div>
             <div className="hero-text flow">
                 <h1>
                     Zadbaj o przyszłość swoich dzieci już dziś
@@ -16,11 +19,9 @@ function InformationBox() {
                 </div>
             </div>
 
-            <div className="hero-img">
-            <img src="/img/hero.png" alt="Code Heroes Logo"/>
-            </div>
+
         </div>
     );
 }
 
-export default InformationBox;
+export default OurVision;

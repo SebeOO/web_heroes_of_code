@@ -3,7 +3,7 @@ import React from 'react';
 function Underfooter() {
     return (
         <div className="underfooter">
-            podstopka z copyrightami
+            Code Heroes 2025 &copy; Wszelkie prawa zastrzeżone!
         </div>
     );
 }

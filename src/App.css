@@ -1,11 +1,23 @@
 /* App.css */
+ul,
+ol{
+    list-style: none;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1600px;
+}
 
 /* Fullpage layout */
 .Fullpage {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: Poppins, sans-serif;
 }
 
 .Header {
@@ -15,23 +27,18 @@
     text-align: right;
 }
 
-.Login-button {
-    background-color: #f4b400;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-}
-
 .Menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     background-color: #2e3b4e;
-    padding: 20px;
+    padding: 1em;
     color: white;
 }
 
 .Logo {
+    padding: 0;
+    margin: 0;
     font-size: 24px;
 }
 
@@ -42,13 +49,25 @@
 
 .Buttons {
     cursor: pointer;
-    padding: 10px 15px;
-    background-color: #f4b400;
+    color: #f4b400;
     border-radius: 5px;
-    position: relative;
-    display: flex;          /* Enable flexbox */
-    align-items: center;    /* Vertically center the text */
-    justify-content: center;/* Horizontally center the text */
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    border: none;
+    text-align: center;
+    width: auto;
+}
+
+.special{
+    background-color: #f4b400;
+    color: #2e3b4e;
+}
+
+.special:hover{
+    color: #2e3b4e;
+    background-color: #e68900;
 }
 
 .Dropdown-btn {
@@ -95,15 +114,21 @@
 }
 
 .Buttons:hover {
-    background-color: #e68900;
+    /*background-color: #e68900;*/
+    color: white;
 }
 
-.Information-Box,
-.Information-Box-2 {
-    padding: 30px;
-    background-color: #f4f4f4;
-    margin: 20px 0;
+.Information-Box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    /*background-color: #f4f4f4;*/
     border-radius: 8px;
+}
+
+.hero-img>img{
+    width: 800px;
 }
 
 .Photos {
@@ -136,22 +161,27 @@
 
 /* Footer styling */
 .Footer {
-    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    background-color: #222;
     color: white;
     padding: 20px;
     text-align: center;
-    margin-bottom: 30px; /* Add space to separate from underfooter */
+}
+
+.footer-widget{
+    text-align: left;
 }
 
 /* Underfooter styling */
 .underfooter {
     background-color: #222;
     color: white;
-    padding: 10px;
+    padding: 3em;
     text-align: center;
     font-size: 12px;
-    position: fixed; /* Stays at the very bottom of the page */
-    bottom: 0;
-    left: 0;
-    width: 100%;
+}
+
+.flow > * + *{
+    margin-top: .8em;
 }
