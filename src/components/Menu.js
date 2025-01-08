@@ -56,9 +56,9 @@ function Menu() {
                     {showDropdown && (
                         <div className="dropdown-menu">
                             <ul>
-                                <li onClick={() => alert('Profile option clicked')}>Profile</li>
-                                <li onClick={() => testApi()}>Settings</li>
-                                <li onClick={handleLogout}>Logout</li>
+                                <li onClick={() => alert('Profile option clicked')}>Profil</li>
+                                <li onClick={() => testApi()}>Moje kursy</li>
+                                <li onClick={handleLogout}>Wyloguj</li>
                             </ul>
                         </div>
                     )}
