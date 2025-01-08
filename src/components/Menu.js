@@ -12,14 +12,17 @@ function Menu() {
     const hidePopup = () => setIsPopupVisible(false);
     const testApi = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/test', {
+            const response = await axios.get('http://localhost:8080/courses', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
-            });
+            }
+            );
+            console.log(response.data)
         } catch (error) {
             console.error('Error:', error);
         }
+
     };
 
     const handleLogout = () => {
