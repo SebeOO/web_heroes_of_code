@@ -65,7 +65,7 @@ function Menu() {
                 </div>
             ) : (
                 // If the user is not logged in, show the login button
-                <div className="Buttons special" onClick={handlePopupToggle}>
+                <div className="Buttons special" onClick={showPopup}>
                     Wypróbuj za darmo!
                 </div>
             )}
