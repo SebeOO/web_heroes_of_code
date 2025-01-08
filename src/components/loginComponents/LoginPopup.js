@@ -28,9 +28,9 @@ function LoginPopup({ setIsPopupVisible }) {
 
         try {
             const response = await axios.post(url, data);
-
+            console.log(response)
             if (response.status === 200) {
-
+                    console.log("po rejestracji")
 
                 if (!isRegistering) {
 
@@ -48,6 +48,9 @@ function LoginPopup({ setIsPopupVisible }) {
                     } else {
                         alert('Login failed. Please try again.');
                     }
+                }else{
+                    setIsPopupVisible(false)
+                    alert('Rejestracja pomyślna')
                 }
             } else {
                 alert('An error occurred. Please try again.');
