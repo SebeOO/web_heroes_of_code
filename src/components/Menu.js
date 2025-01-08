@@ -36,9 +36,10 @@ function Menu() {
 
             {/* Main Menu */}
             <div className="Menu-buttons">
-                <div className="Buttons">Kursy i Cenniki</div>
-                <div className="Buttons">Nie wiem</div>
-                <div className="Buttons">Więcej</div>
+                <div className="Buttons">Kursy</div>
+                <div className="Buttons">Kontakt</div>
+                <div className="Buttons inactive">Forum</div>
+                <div className="Buttons inactive">Pomoc</div>
             </div>
 
             {/* User Section or Login Button */}
@@ -64,7 +65,9 @@ function Menu() {
                 </div>
             ) : (
                 // If the user is not logged in, show the login button
-                <button className="login-button" onClick={showPopup}>Login</button>
+                <div className="Buttons special" onClick={handlePopupToggle}>
+                    Wypróbuj za darmo!
+                </div>
             )}
 
             {/* Show Login Popup if isPopupVisible is true */}
