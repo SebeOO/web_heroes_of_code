@@ -31,49 +31,54 @@ function Menu() {
     };
 
     return (
-        <div className="Menu">
-            <div className="Logo">tu wpierdolic logo</div>
-
-            {/* Main Menu */}
-            <div className="Menu-buttons">
-                <div className="Buttons">Kursy</div>
-                <div className="Buttons">Kontakt</div>
-                <div className="Buttons inactive">Forum</div>
-                <div className="Buttons inactive">Pomoc</div>
-            </div>
-
-            {/* User Section or Login Button */}
-            {user ? (
-
-                <div
-                    className="user-section"
-                    onMouseEnter={() => setShowDropdown(true)}
-                    onMouseLeave={() => setShowDropdown(false)}
-                >
-                    <button className="account-button">
-                        {user.username} ▼
-                    </button>
-                    {showDropdown && (
-                        <div className="dropdown-menu">
-                            <ul>
-                                <li onClick={() => alert('Profile option clicked')}>Profil</li>
-                                <li onClick={() => testApi()}>Moje kursy</li>
-                                <li onClick={handleLogout}>Wyloguj</li>
-                            </ul>
-                        </div>
-                    )}
-                </div>
-            ) : (
-                // If the user is not logged in, show the login button
-                <div className="Buttons special" onClick={showPopup}>
-                    Wypróbuj za darmo!
-                </div>
-            )}
-
-            {/* Show Login Popup if isPopupVisible is true */}
-            {isPopupVisible && <LoginPopup setIsPopupVisible={setIsPopupVisible} />}
+    <div className="Menu">
+        <div className="Logo">
+            <a href="/index.html">
+                <img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/>
+            </a>
         </div>
-    );
+
+        {/* Main Menu */}
+        <div className="Menu-buttons">
+            <div className="Buttons">Kursy</div>
+            <div className="Buttons">Kontakt</div>
+            <div className="Buttons inactive">Forum</div>
+            <div className="Buttons inactive">Pomoc</div>
+        </div>
+
+        {/* User Section or Login Button */}
+        {user ? (
+
+            <div
+                className="user-section"
+                onMouseEnter={() => setShowDropdown(true)}
+                onMouseLeave={() => setShowDropdown(false)}
+            >
+                <button className="account-button">
+                    {user.username} ▼
+                </button>
+                {showDropdown && (
+                    <div className="dropdown-menu">
+                        <ul>
+                            <li onClick={() => alert('Profile option clicked')}>Profil</li>
+                            <li onClick={() => testApi()}>Moje kursy</li>
+                            <li onClick={handleLogout}>Wyloguj</li>
+                        </ul>
+                    </div>
+                )}
+            </div>
+        ) : (
+            // If the user is not logged in, show the login button
+            <div className="Buttons special" onClick={showPopup}>
+                Wypróbuj za darmo!
+            </div>
+        )}
+
+        {/* Show Login Popup if isPopupVisible is true */}
+        {isPopupVisible && <LoginPopup setIsPopupVisible={setIsPopupVisible}/>}
+    </div>
+)
+    ;
 }
 
 export default Menu;
