@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext'; // Access global auth state
 import LoginPopup from './loginComponents/LoginPopup'; // Import LoginPopup
 import axios from 'axios';
+import { Link } from 'react-router-dom'
+
 
 function Menu() {
     const { user, setUser, logout } = useAuth(); // Access auth state and functions from AuthContext
@@ -33,15 +35,15 @@ function Menu() {
     return (
     <div className="Menu">
         <div className="Logo">
-            <a href="/index.html">
+            <a href="/">
                 <img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/>
             </a>
         </div>
 
         {/* Main Menu */}
         <div className="Menu-buttons">
-            <div className="Buttons">Kursy</div>
-            <div className="Buttons">Kontakt</div>
+            <Link className="Buttons" to="/course">Kursy</Link>
+            <Link className="Buttons" to="/">Kontakt</Link>
             <div className="Buttons inactive">Forum</div>
             <div className="Buttons inactive">Pomoc</div>
         </div>

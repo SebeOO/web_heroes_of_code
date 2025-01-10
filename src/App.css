@@ -1,7 +1,11 @@
-/* App.css */
 ::selection {
     color: #222;
     background: #f4b400;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 ul,
