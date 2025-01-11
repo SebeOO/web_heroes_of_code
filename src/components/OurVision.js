@@ -18,7 +18,7 @@ function OurVision() {
                 </p>
 
                 <div className="two-text-columns">
-                    <div>
+                    <div className="flow">
                         <h3>Nasza Wizja</h3>
                         <p>
                             Tworzymy przestrzeń, gdzie dzieci mogą rozwijać swoje pasje i talenty w przyjaznej
@@ -30,7 +30,7 @@ function OurVision() {
                         <p>Warsztaty tematyczne</p>
                     </div>
 
-                    <div>
+                    <div className="flow">
                         <h3>Nasza Misja</h3>
                         <p>
                             Pomagamy dzieciom odkrywać świat pełen możliwości, rozwijać ich naturalne talenty i budować pewność siebie. <br />

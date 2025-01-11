@@ -35,14 +35,15 @@ function Menu() {
     return (
     <div className="Menu">
         <div className="Logo">
-            <a href="/">
+            <Link to="/">
                 <img src="/img/logo_new.png" alt="Code Heroes Logo" width="200"/>
-            </a>
+            </Link>
         </div>
 
         {/* Main Menu */}
         <div className="Menu-buttons">
-            <Link className="Buttons" to="/course">Kursy</Link>
+            <Link className="Buttons" to="/course">Kurs</Link>
+            <Link className="Buttons" to="/">Kursy</Link>
             <Link className="Buttons" to="/">Kontakt</Link>
             <div className="Buttons inactive">Forum</div>
             <div className="Buttons inactive">Pomoc</div>
